@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #023047;
+    --gcolorleft: #ff006e;
+    --gcolorright: #8338ec;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}   
+
+h1 {
+    padding: 1em;
+}
+
+.card {
+    width: 80%;
+    height: 80%;
+    padding: 5px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, var(--gcolorleft), var(--gcolorright));
+}
+
+.card-content {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    gap: 1.5rem;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: 0;
+}
+
+.answers > * {
+    margin: 1rem;
+}
