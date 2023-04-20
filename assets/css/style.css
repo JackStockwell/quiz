@@ -41,14 +41,16 @@ h1, h2, h3, h4, h5, h6 {
 header {
     display: flex;
     position: fixed;
-    width: 80%;
+    width: 100%;
     top: 0;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 header > * {
     padding: 1em;
+    flex: 1;
     color: white;
     text-decoration: none;
     text-transform: uppercase;

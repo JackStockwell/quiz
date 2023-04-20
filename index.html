@@ -17,10 +17,10 @@
         <header>
             <a class="highscores" href="#">View Highscores</a>
             <h1>JavaScript Quiz time!</h1>
-            <span class="timer">Time left: </span>
+            <span id="timer" class="timer">Time left: </span>
         </header>
         <!--Questions-->
-            <section class="card">
+            <section id="welcome-card" class="card">
                 <h2>Welcome!</h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error magni reiciendis libero facere deleniti eaque, molestias ut repellat. 
@@ -31,19 +31,15 @@
                 </span>
             </section>
         <!--Questions-->
-            <div class="question hidden">
-                <h2>Question:</h2>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        Dolorem, nemo aut tenetur libero sunt eligendi minima assumenda, ex inventore aliquam consequatur accusantium illo. 
-                        Non inventore, eius distinctio eaque est sunt.
-                    </p>
+            <div id="question-card" class="hidden">
+                <h2 class="question">Question:</h2>
                 <div class="answers">
                     <p class="answer-1">A</p>
                     <p class="answer-2">B</p>
                     <p class="answer-3">C</p>
                     <p class="answer-4">D</p>
                 </div>
+
             </div>
         </section>
         <script src="./assets/js/script.js"></script>
