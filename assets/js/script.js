@@ -5,7 +5,10 @@ var gameStartDiv = document.querySelector("#question-card")
 var questionTitle = document.querySelector(".question")
 var questionChoices = document.querySelector(".answers")
 
+
 var timeEl = document.getElementById("timer")
+
+
 
 // Global Variables
 
@@ -13,20 +16,14 @@ var currentQuestion = 0
 var currentTime = 60
 
 // Starts the Game, removes welcome screen, renders question screen.
-function startGame(event) {
-    welcomeDiv.classList.replace("card", "hidden")
-    gameStartDiv.classList.replace("hidden", "card")
-
-    // When the timer starts. I am presented with the first question [0].
-
-    timer()
-    nextQuestion(currentQuestion)
-    console.log(questionTitle)
-    // Function to create a question.
-}
 
 
 function timer() {
+    
+    // Function to create a question.
+
+    genQuestion(currentQuestion)
+
     var timerInterval = setInterval(function()  {
         currentTime--;
         timeEl.textContent = "Time left: " + currentTime + " seconds.";
@@ -39,35 +36,46 @@ function timer() {
     }, 1000);
 }
 
-function nextQuestion(currentQ) {
-    
-    questionTitle.textContent += " " + questions[currentQ].title
-    // Used to gain the choices array.
+
+
+function genQuestion(currentQ) {
+    var counter = 0
+
     var choices = questions[currentQ].choices
+    var correctChoice = questions[currentQ].answer
+
+    questionTitle.textContent = questions[currentQ].title
+    
+    // Used to gain the choices array.
 
     // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
-
     for (i = 0; i < choices.length; i++) {       
         questionChoices.children[i].innerHTML = choices[i]
     }
 
-    var correctChoice = questions[currentQ].answer
+    function correctAnswer(event, selectedAnswer) {
+        selectedAnswer = event.target.innerHTML
 
-    
-    questionChoices.addEventListener("click", function(event) {
-        event.preventDefault()
-        console.log(choices)
+        if (selectedAnswer === correctChoice) {
+            console.log("yes")
+            console.log(currentQuestion)
+        } else {
+            console.log("nope")
+            console.log(currentQuestion)
+        }
+    }
+}
 
-    });
-    
-    // function selectChoice(x) {
-    //     if (choices[x] === correctChoice) {
-    //         console.log("Well done!")
-    //     } else {
-    //         console.log("WR")
-    //     }
-    // }
 
+questionChoices.addEventListener("click", function(event, selectedAnswer) {
+    event.stopPropagation();
+    if(event.target === event.currentTarget) {
+        return;
+    } else {
+        console.log("test")
+        return selectedAnswer = event.target.innerHTML;
+    }
+});
 
     // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
 
@@ -77,9 +85,18 @@ function nextQuestion(currentQ) {
     // When I click start I am given a question and 4 paragraphs to place my question.
 
     // The question will be increased upon completion of the question and selection an answer.
+
+function endScreen() {
+    console.log("all over :(")
 }
 
+// Starts the Game, removes welcome screen, renders question screen.
 
-// Function to select the current 
+function startGame(event) {
+    welcomeDiv.classList.replace("card", "hidden")
+    gameStartDiv.classList.replace("hidden", "card")
 
-
+    // When the timer starts. I am presented with the first question [0].
+    timer()
+    // Function to create a question.
+}
