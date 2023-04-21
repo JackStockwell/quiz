@@ -7,24 +7,42 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
     </head>
+
+    
     <body>
-        <h1>JavaScript Quiz time!</h1>
-        <section class="card">
-            <div class="card-content">
-                <h2 class="question-head">Question:</h2>
-                    <p class="question">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        Dolorem, nemo aut tenetur libero sunt eligendi minima assumenda, ex inventore aliquam consequatur accusantium illo. 
-                        Non inventore, eius distinctio eaque est sunt.
-                    </p>
+        <header>
+            <a class="highscores" href="#">View Highscores</a>
+            <h1>JavaScript Quiz time!</h1>
+            <span id="timer" class="timer">Time left: </span>
+        </header>
+        <!--Questions-->
+            <section id="welcome-card" class="card">
+                <h2>Welcome!</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error magni reiciendis libero facere deleniti eaque, molestias ut repellat. 
+                    Sit aut ut blanditiis officiis ducimus totam voluptates facere eaque voluptas?
+                </p>
+                <span id="start-game" class="button" onclick="startGame()">
+                    Begin
+                </span>
+            </section>
+        <!--Questions-->
+            <div id="question-card" class="hidden">
+                <h2 class="question"></h2>
                 <div class="answers">
                     <p class="answer-1">A</p>
                     <p class="answer-2">B</p>
                     <p class="answer-3">C</p>
                     <p class="answer-4">D</p>
                 </div>
-            </div>  
+
+            </div>
         </section>
-        <script src="./assets/js/script.js" async defer></script>
+        <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/questions.js"></script>
     </body>
 </html>

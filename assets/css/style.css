@@ -5,11 +5,13 @@
 }
 
 :root {
-    --background: #023047;
+    --background: #0f1518;
     --background-light: #3a86ff;
     --gcolorleft: #ff006e;
     --gcolorright: #8338ec;
-
+    --headerfont: 'Montserrat', 'sans-seriff';
+    --font: 'Signika Negative', 'sans-seriff';
+    --font-color: #fff;
 }
 
 body {
@@ -20,39 +22,78 @@ body {
     width: 100%;
     height: 100vh;
     background-color: var(--background);
+    font-family: var(--font);
+    color: var(--font-color)
 }   
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headerfont);
+}
+
+/* Hidden */
+
+.hidden {
+    display: none;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header > * {
     padding: 1em;
+    flex: 1;
     color: white;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 .card {
-    width: 80%;
-    height: 80%;
-    background: linear-gradient(whit, white) padding-box,
-                linear-gradient(45deg, var(--gcolorleft), var(--gcolorright)) border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 70%;
+    flex-flow: column nowrap;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--gcolorright), var(--gcolorleft)) padding-box,
+                linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
     border-radius: 2rem;
     border: 4px solid transparent;
+    gap: 3rem;
 }
 
-.card-content {
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-    padding: 1rem;
-    gap: 1.5rem;
-    border-radius: 30px;
+.button {
+    cursor: pointer;
+    border: 3px solid black;
+
 }
+
 
 .answers {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     min-height: 0;
+    text-align: center;
+    gap: 1rem
 }
 
 .answers > * {
-    margin: 1rem;
+    padding: 1ch 3ch;
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 2rem;
+}
+
+.answers > *:hover {
+    border: 3px solid black
 }
