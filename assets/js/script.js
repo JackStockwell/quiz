@@ -3,7 +3,7 @@
 var welcomeDiv = document.querySelector("#welcome-card")
 var gameStartDiv = document.querySelector("#question-card")
 var questionTitle = document.querySelector(".question")
-
+var questionChoices = document.querySelector(".answers")
 
 var timeEl = document.getElementById("timer")
 
@@ -39,14 +39,18 @@ function timer() {
     }, 1000);
 }
 
-function nextQuestion(i) {
+function nextQuestion(currentQ) {
+
+    console.log(questions[currentQ])
     
-    questionTitle.textContent += " " + "Test"
+    questionTitle.textContent += " " + questions[currentQ].title
+    // Used to gain the choices array.
+    var choices = questions[currentQ].choices
 
-    var questionHeader = document.querySelectorAll(".answers");
-
-
-
+    for (i = 0; i < choices.length; i++) {       
+        console.log(choices[i])
+        console.log(questionChoices.children[i].innerHTML)
+    }
 
 
 
@@ -55,6 +59,6 @@ function nextQuestion(i) {
     // The question will be increased upon completion of the question and selection an answer.
 }
 
-
+// Function to select the current 
 
 
