@@ -83,8 +83,17 @@ header > * {
     grid-template-columns: 1fr 1fr;
     width: 100%;
     min-height: 0;
+    text-align: center;
+    gap: 1rem
 }
 
 .answers > * {
-    margin: 1rem;
+    padding: 1ch 3ch;
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 2rem;
+}
+
+.answers > *:hover {
+    border: 3px solid black
 }

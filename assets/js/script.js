@@ -40,24 +40,45 @@ function timer() {
 }
 
 function nextQuestion(currentQ) {
-
-    console.log(questions[currentQ])
     
     questionTitle.textContent += " " + questions[currentQ].title
     // Used to gain the choices array.
     var choices = questions[currentQ].choices
 
+    // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
+
     for (i = 0; i < choices.length; i++) {       
-        console.log(choices[i])
-        console.log(questionChoices.children[i].innerHTML)
+        questionChoices.children[i].innerHTML = choices[i]
     }
 
+    var correctChoice = questions[currentQ].answer
+
+    
+    questionChoices.addEventListener("click", function(event) {
+        event.preventDefault()
+        console.log(choices)
+
+    });
+    
+    // function selectChoice(x) {
+    //     if (choices[x] === correctChoice) {
+    //         console.log("Well done!")
+    //     } else {
+    //         console.log("WR")
+    //     }
+    // }
+
+
+    // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
+
+    // When presented with my choices, i want to take the users choice and to test if it is true or false.
 
 
     // When I click start I am given a question and 4 paragraphs to place my question.
 
     // The question will be increased upon completion of the question and selection an answer.
 }
+
 
 // Function to select the current 
 
