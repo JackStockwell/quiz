@@ -86,12 +86,14 @@ header > * {
     border: 3px solid transparent;
     border-radius: 2rem;
     padding: 1ch 3ch;
+    transition: all 300ms ease-in-out;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
     background: linear-gradient(135deg, black, black) padding-box,
                 linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
-}
+}   
 
 .answers {
     display: grid;
