@@ -36,13 +36,11 @@ function timer() {
     }, 1000);
 }
 
+// Used to generate the question, will return the correctChoice
 
-
-function genQuestion(currentQ) {
-    var counter = 0
+function genQuestion(currentQ, correctChoice) {
 
     var choices = questions[currentQ].choices
-    var correctChoice = questions[currentQ].answer
 
     questionTitle.textContent = questions[currentQ].title
     
@@ -53,27 +51,37 @@ function genQuestion(currentQ) {
         questionChoices.children[i].innerHTML = choices[i]
     }
 
-    function correctAnswer(event, selectedAnswer) {
-        selectedAnswer = event.target.innerHTML
+    // function correctAnswer(event, selectedAnswer) {
+    //     selectedAnswer = event.target.innerHTML
 
-        if (selectedAnswer === correctChoice) {
-            console.log("yes")
-            console.log(currentQuestion)
-        } else {
-            console.log("nope")
-            console.log(currentQuestion)
-        }
-    }
+    //     if (selectedAnswer === correctChoice) {
+    //         console.log("yes")
+    //         console.log(currentQuestion)
+    //     } else {
+    //         console.log("nope")
+    //         console.log(currentQuestion)
+    //     }
+    // }
+    return correctChoice;
+}
+
+function correctAnswer(currentQ, correctChoice) {
+    var correctChoice = questions[currentQ].answer
+    console.log(correctChoice)
+    return correctChoice;
 }
 
 
-questionChoices.addEventListener("click", function(event, selectedAnswer) {
+questionChoices.addEventListener("click", function(event, selectedAnswer, correctChoice) {
     event.stopPropagation();
     if(event.target === event.currentTarget) {
         return;
     } else {
-        console.log("test")
-        return selectedAnswer = event.target.innerHTML;
+        var selectedAnswer = event.target.innerHTML;
+        correctAnswer(currentQuestion, choice)
+        console.log(choice)
+
+
     }
 });
 
