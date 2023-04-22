@@ -2,8 +2,8 @@
 
 var welcomeDiv = document.querySelector("#welcome-card")
 var gameStartDiv = document.querySelector("#question-card")
-var questionTitle = document.querySelector(".question")
-var questionChoices = document.querySelector(".answers")
+var questionTitleDiv = document.querySelector(".question")
+var questionChoicesDiv = document.querySelector(".answers")
 
 
 var timeEl = document.getElementById("timer")
@@ -38,31 +38,22 @@ function timer() {
 
 // Used to generate the question, will return the correctChoice
 
-function genQuestion(currentQ, correctChoice) {
+function genQuestion(currentQ) {
 
-    var choices = questions[currentQ].choices
-
-    questionTitle.textContent = questions[currentQ].title
-    
-    // Used to gain the choices array.
-
-    // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
-    for (i = 0; i < choices.length; i++) {       
-        questionChoices.children[i].innerHTML = choices[i]
+    if (currentQ >= 5) {
+        endScreen()
+    } else {
+        // Sets the title div to be the current question title.
+        questionTitleDiv.textContent = questions[currentQ].title
+        
+        // Used to gain the choices array.
+        var choices = questions[currentQ].choices
+        
+        // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
+        for (i = 0; i < choices.length; i++) {       
+            questionChoicesDiv.children[i].innerHTML = choices[i]
+        }
     }
-
-    // function correctAnswer(event, selectedAnswer) {
-    //     selectedAnswer = event.target.innerHTML
-
-    //     if (selectedAnswer === correctChoice) {
-    //         console.log("yes")
-    //         console.log(currentQuestion)
-    //     } else {
-    //         console.log("nope")
-    //         console.log(currentQuestion)
-    //     }
-    // }
-    return correctChoice;
 }
 
 function correctAnswer(currentQ, correctChoice) {
@@ -72,14 +63,23 @@ function correctAnswer(currentQ, correctChoice) {
 }
 
 
-questionChoices.addEventListener("click", function(event, selectedAnswer, correctChoice) {
+questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
     event.stopPropagation();
     if(event.target === event.currentTarget) {
         return;
     } else {
         var selectedAnswer = event.target.innerHTML;
-        correctAnswer(currentQuestion, choice)
-        console.log(choice)
+        var correctChoice = questions[currentQuestion].answer
+
+        if (correctChoice === selectedAnswer) {
+            console.log("Yippe!")
+            currentQuestion++;
+            genQuestion(currentQuestion)
+        } else {
+            console.log("Woops")
+            currentQuestion++;
+            genQuestion(currentQuestion)
+        }
 
 
     }
