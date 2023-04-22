@@ -14,6 +14,7 @@ var timeEl = document.getElementById("timer")
 
 var currentQuestion = 0
 var currentTime = 60
+var score = 0
 
 // Starts the Game, removes welcome screen, renders question screen.
 
@@ -48,7 +49,7 @@ function genQuestion(currentQ) {
         
         // Used to gain the choices array.
         var choices = questions[currentQ].choices
-        
+
         // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
         for (i = 0; i < choices.length; i++) {       
             questionChoicesDiv.children[i].innerHTML = choices[i]
@@ -56,11 +57,12 @@ function genQuestion(currentQ) {
     }
 }
 
-function correctAnswer(currentQ, correctChoice) {
-    var correctChoice = questions[currentQ].answer
-    console.log(correctChoice)
-    return correctChoice;
-}
+
+
+
+
+
+
 
 
 questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
@@ -84,15 +86,6 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
 
     }
 });
-
-    // I want to take choices[i] and replace the innertext of questionchoices children, all in a loop.
-
-    // When presented with my choices, i want to take the users choice and to test if it is true or false.
-
-
-    // When I click start I am given a question and 4 paragraphs to place my question.
-
-    // The question will be increased upon completion of the question and selection an answer.
 
 function endScreen() {
     console.log("all over :(")
