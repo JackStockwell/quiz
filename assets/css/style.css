@@ -29,6 +29,7 @@ body {
     background: linear-gradient(135deg, var(--gbleft), var(--gbright));
     font-family: var(--font);
     color: var(--font-color);
+    font-size: 18px;
 }   
 
 /* Headers */
@@ -115,12 +116,14 @@ header > * {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
+    max-width: 40rem;
     min-height: 0;
     text-align: center;
-    gap: 1rem;
+    gap: 1rem 2rem;
 }
 
 .answers > * {
+    flex: 1;
     padding: 1ch 3ch;
     cursor: pointer;
     border: 3px solid transparent;
@@ -134,13 +137,3 @@ header > * {
     width: 100%;
     text-align: center;
 }
-
-.response::after {
-    content: "";
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-}
-
