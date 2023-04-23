@@ -1,30 +1,28 @@
 // Query Selector's
 
-var welcomeDiv = document.querySelector("#welcome-card")
-var gameStartDiv = document.querySelector("#question-card")
-var questionTitleDiv = document.querySelector(".question")
-var questionChoicesDiv = document.querySelector(".answers")
-var questionResponseDiv = document.querySelector(".response")
+var welcomeDiv = document.querySelector("#welcome-card");
+var gameStartDiv = document.querySelector("#question-card");
+var questionTitleDiv = document.querySelector(".question");
+var questionChoicesDiv = document.querySelector(".answers");
+var questionResponseDiv = document.querySelector(".response");
 
 
-var timeEl = document.getElementById("timer")
+var timeEl = document.getElementById("timer");
 
 
 
 // Global Variables
 
-var currentQuestion = 0
-var currentTime = 60
-var score = 0
+var currentQuestion = 0;
+var currentTime = 60;
+var score = 0;
 
 // Starts the Game, removes welcome screen, renders question screen.
 
 
 function timer() {
     
-    // Function to create a question.
 
-    genQuestion(currentQuestion)
 
     var timerInterval = setInterval(function()  {
         currentTime--;
@@ -32,17 +30,17 @@ function timer() {
 
         if (currentTime === 0) {
             clearInterval(timerInterval)
-            // Later function
+            endScreen();
         }
 
     }, 1000);
 }
 
-// Used to generate the question, will return the correctChoice
+// Used to generate the next question in a chain if there is one available.
 
 function genQuestion(currentQ) {
 
-    if (currentQ >= 5) {
+    if (currentQ >= questions.length) {
         endScreen()
     } else {
         // Sets the title div to be the current question title.
@@ -58,28 +56,37 @@ function genQuestion(currentQ) {
     }
 }
 
+// Function to generate a response, based upon the declaration from the event listener
+
 function genResponse(response) {
     
-    var correctChoice = questions[currentQuestion].answer
+    if (response === "correct") {
+        response = "Correct!"
+        console.log(response)
+        questionResponseDiv.textContent = ""
+    } else {
+        response = "Incorrect!"
+        console.log(response)
+        questionResponseDiv.textContent = ""
+    }
+    
+    questionResponseDiv.textContent = (response)
 
     var alertTime = 2;
+
     var timerInterval = setInterval(function()  {
         alertTime--;
 
-        if (currentTime !== 0) {
+        if (alertTime === 0) {
             questionResponseDiv.textContent = ""
-        } else {
             clearInterval(timerInterval)
-
+            alertTime = 0
         }
 
     }, 1000);
+
+
 }
-
-
-
-
-
 
 questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
     event.stopPropagation();
@@ -90,39 +97,13 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
         var correctChoice = questions[currentQuestion].answer
 
         if (correctChoice === selectedAnswer) {
-            console.log("Yippe!")
             currentQuestion++;
+            genResponse("correct")
             genQuestion(currentQuestion)
         } else {
-            console.log("Woops")
             currentQuestion++;
+            genResponse("incorrect")
             genQuestion(currentQuestion)
-        }
-
-        genResponse()
-
-        // var genResponse = function() {
-
-        //     var response = 
-    
-        //     if (response === "correct") {
-        //         response = "Correct!"
-        //     } else {
-        //         response = "Incorrect!"
-        //     }
-
-        //     var alertTime = 2;
-        //     var timerInterval = setInterval(function()  {
-        //         alertTime--;
-        
-        //         if (currentTime > 0) {
-        //             questionResponseDiv.textContent = response
-        //         } else {
-        //             clearInterval(timerInterval)
-        //             questionResponseDiv.textContent = ""
-        //         }
-        
-        //     }, 1000);
         }
     }
 });
@@ -139,5 +120,8 @@ function startGame(event) {
 
     // When the timer starts. I am presented with the first question [0].
     timer()
+    
     // Function to create a question.
+
+    genQuestion(currentQuestion)
 }

@@ -28,7 +28,7 @@ body {
     height: 100vh;
     background: linear-gradient(135deg, var(--gbleft), var(--gbright));
     font-family: var(--font);
-    color: var(--font-color)
+    color: var(--font-color);
 }   
 
 /* Headers */
@@ -59,7 +59,7 @@ header {
 header > * {
     padding: 1em;
     flex: 1;
-    color: white;
+    color: #fff;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -105,13 +105,19 @@ header > * {
     transform: scale(1.03);
 }   
 
+/* Question Title */
+
+.question {
+    margin-top: 2rem;
+}
+
 .answers {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     min-height: 0;
     text-align: center;
-    gap: 1rem
+    gap: 1rem;
 }
 
 .answers > * {
@@ -120,3 +126,21 @@ header > * {
     border: 3px solid transparent;
     border-radius: 2rem;
 }
+
+.response {
+    margin: 2ch;
+    border: 2px solid transparent;
+    height: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.response::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+
