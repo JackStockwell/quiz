@@ -4,6 +4,7 @@ var welcomeDiv = document.querySelector("#welcome-card")
 var gameStartDiv = document.querySelector("#question-card")
 var questionTitleDiv = document.querySelector(".question")
 var questionChoicesDiv = document.querySelector(".answers")
+var questionResponseDiv = document.querySelector(".response")
 
 
 var timeEl = document.getElementById("timer")
@@ -57,8 +58,23 @@ function genQuestion(currentQ) {
     }
 }
 
+function genResponse(response) {
+    
+    var correctChoice = questions[currentQuestion].answer
 
+    var alertTime = 2;
+    var timerInterval = setInterval(function()  {
+        alertTime--;
 
+        if (currentTime !== 0) {
+            questionResponseDiv.textContent = ""
+        } else {
+            clearInterval(timerInterval)
+
+        }
+
+    }, 1000);
+}
 
 
 
@@ -83,7 +99,31 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
             genQuestion(currentQuestion)
         }
 
+        genResponse()
 
+        // var genResponse = function() {
+
+        //     var response = 
+    
+        //     if (response === "correct") {
+        //         response = "Correct!"
+        //     } else {
+        //         response = "Incorrect!"
+        //     }
+
+        //     var alertTime = 2;
+        //     var timerInterval = setInterval(function()  {
+        //         alertTime--;
+        
+        //         if (currentTime > 0) {
+        //             questionResponseDiv.textContent = response
+        //         } else {
+        //             clearInterval(timerInterval)
+        //             questionResponseDiv.textContent = ""
+        //         }
+        
+        //     }, 1000);
+        }
     }
 });
 
