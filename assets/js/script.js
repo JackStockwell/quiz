@@ -59,7 +59,9 @@ function genQuestion(currentQ) {
 // Function to generate a response, based upon the declaration from the event listener
 
 function genResponse(response) {
-    
+
+    alertTime = 1;
+
     if (response === "correct") {
         response = "Correct!"
         console.log(response)
@@ -69,10 +71,10 @@ function genResponse(response) {
         console.log(response)
         questionResponseDiv.textContent = ""
     }
-    
-    questionResponseDiv.textContent = (response)
 
-    var alertTime = 2;
+    var alertTime = 1;
+
+    questionResponseDiv.textContent = (response)
 
     var timerInterval = setInterval(function()  {
         alertTime--;
