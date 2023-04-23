@@ -30,6 +30,7 @@ body {
     font-family: var(--font);
     color: var(--font-color);
     font-size: 18px;
+    padding: 1rem;
 }   
 
 /* Headers */
@@ -49,12 +50,14 @@ h1, h2, h3, h4, h5, h6 {
 
 header {
     display: flex;
-    position: fixed;
+    position: sticky;
+    margin-bottom: 2rem;
     width: 100%;
     top: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
+    max-width: 100rem;
 }
 
 header > * {
@@ -66,14 +69,20 @@ header > * {
 }
 
 /* Card */
-/* Used on all elements, altered by JS to be displayed on generated elements*/
+
+/* Used on elements, altered by JS to be displayed on generated elements*/
+
+
 
 .card {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
-    height: 70%;
+    margin: 0 0rem 5rem 0rem;
+    flex: 1;
+    width: 100%;
+    height: auto;
+    max-width: 80rem;
     flex-flow: column nowrap;
     padding: 2rem;
     background: 
@@ -83,7 +92,15 @@ header > * {
     border-radius: 2rem;
     border: 4px solid transparent;
     gap: 3rem;
+    font-size: 1em;
+}
 
+/* Form */
+
+#form-name {
+    font-size: 1em;
+    text-transform: none;
+    text-align: center;
 }
 
 /* Button Class */
@@ -96,6 +113,7 @@ header > * {
     background: 
         linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
     transition: all 200ms ease;
+    color: var(--font-color);
 }
 
 .button:hover,
@@ -105,6 +123,11 @@ header > * {
         linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
     transform: scale(1.03);
 }   
+
+/* Form Screen */
+
+
+
 
 /* Question Title */
 
@@ -130,9 +153,8 @@ header > * {
     border-radius: 2rem;
 }
 
-.response {
+.ans-response {
     margin: 2ch;
-    border: 2px solid transparent;
     height: 1rem;
     width: 100%;
     text-align: center;

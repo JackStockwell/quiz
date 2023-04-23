@@ -1,21 +1,28 @@
-// Query Selector's
+// Query Selectors
 
 var welcomeDiv = document.querySelector("#welcome-card");
 var gameStartDiv = document.querySelector("#question-card");
+var formNameDiv = document.querySelector("#form-card");
+var submitBttn = document.querySelector("#form-name-bttn")
+
 var questionTitleDiv = document.querySelector(".question");
 var questionChoicesDiv = document.querySelector(".answers");
-var questionResponseDiv = document.querySelector(".response");
+var questionResponseDiv = document.querySelector(".ans-response");
 
 
 var timeEl = document.getElementById("timer");
 
-
+console.log(localStorage)
 
 // Global Variables
 
 var currentQuestion = 0;
 var currentTime = 60;
-var score = 0;
+var score = 0
+
+// Local Storage variable
+
+
 
 // Starts the Game, removes welcome screen, renders question screen.
 
@@ -100,6 +107,7 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
 
         if (correctChoice === selectedAnswer) {
             currentQuestion++;
+            score++;
             genResponse("correct")
             genQuestion(currentQuestion)
         } else {
@@ -110,6 +118,19 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
     }
 });
 
+function submitName(event) {
+    event.preventDefault()
+
+    var name = document.querySelector("#form-name").value
+    
+    
+    if (name === "") {
+        window.alert
+    }
+
+    console.log(name)
+}
+
 function endScreen() {
     console.log("all over :(")
 }
@@ -117,7 +138,7 @@ function endScreen() {
 // Starts the Game, removes welcome screen, renders question screen.
 
 function startGame(event) {
-    welcomeDiv.classList.replace("card", "hidden")
+    formNameDiv.classList.replace("card", "hidden")
     gameStartDiv.classList.replace("hidden", "card")
 
     // When the timer starts. I am presented with the first question [0].
@@ -126,4 +147,9 @@ function startGame(event) {
     // Function to create a question.
 
     genQuestion(currentQuestion)
+}
+
+function startForm() {
+    welcomeDiv.classList.replace("card", "hidden")
+    formNameDiv.classList.replace("hidden", "card")
 }
