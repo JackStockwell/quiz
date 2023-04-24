@@ -122,18 +122,22 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
     }
 });
 
+// Used to get the value of the form name and turn it into an object that can be saved to.
+
 function submitName(event) {
     event.preventDefault()
-
     var name = document.querySelector("#form-name").value
-    
-    
+    // if statement to check for a valid name
     if (name === "") {
-        window.alert("You must enter a name!")
-    } else {
+        alert("You must enter a name!")
+    } else if (name.length > 20) {
+        alert("Please use less that 24 characters.")
+    } else if (!isNaN(name))
+        alert("Please use letters only!")
+    else {    
         startGame();
     }
-
+    // when a valid name is entered I WANT to store that name to be stored in an array object so WHEN i call upon on it later, I CAN gather both name and score
 }
 
 function endScreen() {
