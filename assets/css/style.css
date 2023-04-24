@@ -166,24 +166,22 @@ header > * {
 
 /* Highscores */
 
-table {
+.score-table {
     display: flex;
     justify-content: center;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     border: 3px solid transparent;
     border-radius: var(--brad);
     background: linear-gradient(135deg, black, black) padding-box,
                 linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
+    gap: 1rem;
 }
 
-table tr {
+.score-table tr {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1ch;
     justify-content: center;
     text-align: center;
-}
-
-table tr > * {
-    padding: 1em;
 }

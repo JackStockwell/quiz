@@ -97,6 +97,10 @@ function genResponse(response) {
 
 }
 
+function returnHome() {
+    open("index.html", "_self")
+}
+
 questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
     event.stopPropagation();
     if(event.target === event.currentTarget) {
