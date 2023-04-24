@@ -11,11 +11,13 @@
     --gcolorright: #8338ec;
     --gbright: #C33764;
     --gbleft: #1D2671;
+    --brad: 2rem;
     --headerfont: 'Montserrat', 'sans-seriff';
     --font: 'Signika Negative', 'sans-seriff';
     --font-color: #fff;
     --font-colordark: #111
 }
+/* General */
 
 /* Body */
 
@@ -72,8 +74,6 @@ header > * {
 
 /* Used on elements, altered by JS to be displayed on generated elements*/
 
-
-
 .card {
     display: flex;
     justify-content: center;
@@ -94,6 +94,8 @@ header > * {
     gap: 3rem;
     font-size: 1em;
 }
+
+/* Index */
 
 /* Form */
 
@@ -159,4 +161,29 @@ header > * {
     height: 1rem;
     width: 100%;
     text-align: center;
+}
+
+
+/* Highscores */
+
+table {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: 3px solid transparent;
+    border-radius: var(--brad);
+    background: linear-gradient(135deg, black, black) padding-box,
+                linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
+}
+
+table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+}
+
+table tr > * {
+    padding: 1em;
 }
