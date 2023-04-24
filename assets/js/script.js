@@ -37,7 +37,7 @@ function timer() {
 
         if (currentTime === 0) {
             clearInterval(timerInterval)
-            endScreen();
+            startForm();
         }
 
     }, 1000);
@@ -48,7 +48,7 @@ function timer() {
 function genQuestion(currentQ) {
 
     if (currentQ >= questions.length) {
-        endScreen()
+        startForm()
     } else {
         // Sets the title div to be the current question title.
         questionTitleDiv.textContent = questions[currentQ].title
@@ -74,7 +74,7 @@ function genResponse(response) {
         console.log(response)
         questionResponseDiv.textContent = ""
     } else {
-        response = "Incorrect!"
+        response = "Incorrect! -5s from your time!"
         console.log(response)
         questionResponseDiv.textContent = ""
     }
@@ -116,6 +116,7 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
             genQuestion(currentQuestion)
         } else {
             currentQuestion++;
+            currentTime -=5
             genResponse("incorrect")
             genQuestion(currentQuestion)
         }
@@ -140,14 +141,14 @@ function submitName(event) {
     // when a valid name is entered I WANT to store that name to be stored in an array object so WHEN i call upon on it later, I CAN gather both name and score
 }
 
-function endScreen() {
-    console.log("all over :(")
-}
+// function endScreen() {
+//     console.log("all over :(")
+// }
 
 // Starts the Game, removes welcome screen, renders question screen.
 
 function startGame(event) {
-    formNameDiv.classList.replace("card", "hidden")
+    welcomeDiv.classList.replace("card", "hidden")
     gameStartDiv.classList.replace("hidden", "card")
 
     // When the timer starts. I am presented with the first question [0].
@@ -159,6 +160,6 @@ function startGame(event) {
 }
 
 function startForm() {
-    welcomeDiv.classList.replace("card", "hidden")
+    gameStartDiv.classList.replace("card", "hidden")
     formNameDiv.classList.replace("hidden", "card")
 }
