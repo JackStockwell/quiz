@@ -26,7 +26,7 @@ body {
     flex-flow: column nowrap;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, var(--gbleft), var(--gbright));
+    background: no-repeat center/cover url(../images/background/blurry-gradient-haikei.svg);
     font-family: var(--font);
     color: var(--font-color);
     font-size: 18px;
@@ -114,6 +114,7 @@ header > * {
         linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
     transition: all 200ms ease;
     color: var(--font-color);
+    font-size: 1em;
 }
 
 .button:hover,
