@@ -116,6 +116,7 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
             genQuestion(currentQuestion)
         } else {
             currentQuestion++;
+            currentTime = currentTime -=5
             genResponse("incorrect")
             genQuestion(currentQuestion)
         }
