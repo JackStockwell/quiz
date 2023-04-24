@@ -125,10 +125,11 @@ function submitName(event) {
     
     
     if (name === "") {
-        window.alert
+        window.alert("You must enter a name!")
+    } else {
+        startGame();
     }
 
-    console.log(name)
 }
 
 function endScreen() {
