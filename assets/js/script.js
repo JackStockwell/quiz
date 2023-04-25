@@ -4,6 +4,7 @@ var welcomeDiv = document.querySelector("#welcome-card");
 var gameStartDiv = document.querySelector("#question-card");
 var formNameDiv = document.querySelector("#form-card");
 var submitBttn = document.querySelector("#form-name-bttn")
+var formName = document.querySelector("#form-name")
 
 var questionTitleDiv = document.querySelector(".question");
 var questionChoicesDiv = document.querySelector(".answers");
@@ -17,11 +18,11 @@ console.log(localStorage)
 
 var currentQuestion = 0;
 var currentTime = 60;
-var score = 0
+var currentScore = 0
 
-// Local Storage variable
+// 
 
-
+var userData = []
 
 // Starts the Game, removes welcome screen, renders question screen.
 
@@ -100,6 +101,10 @@ function returnHome() {
     open("index.html", "_self")
 }
 
+function storeUserData() {
+    localStorage.setItem("userScore", JSON.stringify(userData))
+}
+
 questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
     event.stopPropagation();
     if(event.target === event.currentTarget) {
@@ -110,7 +115,7 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
 
         if (correctChoice === selectedAnswer) {
             currentQuestion++;
-            score++;
+            user;
             genResponse("correct")
             genQuestion(currentQuestion)
         } else {
@@ -126,23 +131,31 @@ questionChoicesDiv.addEventListener("click", function(event, selectedAnswer) {
 
 function submitName(event) {
     event.preventDefault()
-    var name = document.querySelector("#form-name").value
+
+    var pastScores = JSON.parse(localStorage.getItem("userData"))
+
+    console.log(pastScores)
+
+    var name = formName.value
     // if statement to check for a valid name
     if (name === "") {
         alert("You must enter a name!")
+        return;
     } else if (name.length > 20) {
         alert("Please use less that 24 characters.")
-    } else if (!isNaN(name))
+        return;
+    } else if (!isNaN(name)) {
         alert("Please use letters only!")
-    else {    
-        startGame();
+        return;
+    } else {
+        userData.userName = name
+        userData.userScore - currentScore
+        localStorage.setItem("userScore", JSON.stringify(userData))
     }
     // when a valid name is entered I WANT to store that name to be stored in an array object so WHEN i call upon on it later, I CAN gather both name and score
 }
 
-// function endScreen() {
-//     console.log("all over :(")
-// }
+
 
 // Starts the Game, removes welcome screen, renders question screen.
 
