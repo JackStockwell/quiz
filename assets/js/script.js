@@ -16,7 +16,7 @@ var timeEl = document.getElementById("timer");
 // Global Variables
 
 var currentQuestion = 0;
-var currentTime = 60;
+var currentTime = 45;
 var currentScore = 0
 
 // 
@@ -152,38 +152,35 @@ function submitName(event) {
         // Stores the array and stringifies it.
         storeUserData();
         console.log(userData)
-        open("highscores.html", "_self")
+        startForm()
     }
 
 }
+
+// Renders the scores on page load of highscores.
 
 function renderHighscore() {
     console.log("test");
     
     getUserData();
 
-    console.log(userData);
-
-    for (i = 0; i < userData.length; i++) {
-        if (i == 0 || ) {
+    // Gets last 10 entries of the array, which is 5 users worth of scores.
+    var last5 = userData.slice(-10);
+    console.log(last5)
+    for (i = 0; i < last5.length; i++) {
+        // Checks if it's even. Creates elements based on this, a new table row is needed on every name.
+        if (i%2 == 0) {
             var trEl = document.createElement("tr");
             tableDiv.appendChild(trEl);
             var tdEl = document.createElement("td");
             trEl.appendChild(tdEl);
-            tdEl.innerHTML = userData[i];
+            tdEl.innerHTML = last5[i];
         } else {
-            console.log("help")
+            var tdEl = document.createElement("td");
+            trEl.appendChild(tdEl);
+            tdEl.innerHTML = last5[i];
         }
-
-
-    }
-    
-    tableDiv.appendChild(trEl)
-    
-    .appendChild(tdEl)
-
-    tdEl.innerText = 123
-    
+    } 
 }
 
 // Starts the Game, removes welcome screen, renders question screen.
@@ -200,7 +197,8 @@ function startGame(event) {
     genQuestion(currentQuestion)
 }
 
+// Hides the 
+
 function startForm() {
-    gameStartDiv.classList.replace("card", "hidden")
-    formNameDiv.classList.replace("hidden", "card")
+    open("highscores.html", "_self")
 }

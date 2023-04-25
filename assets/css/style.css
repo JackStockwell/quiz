@@ -172,6 +172,7 @@ header > * {
 /* Highscores */
 
 .score-table {
+    transform: scale(.85);
     display: flex;
     justify-content: center;
     flex-flow: column nowrap;
