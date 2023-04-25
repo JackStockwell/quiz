@@ -19,19 +19,13 @@ var currentQuestion = 0;
 var currentTime = 45;
 var currentScore = 0
 
-// 
-
-// var userData = []
+// The array used to store the users name and score.
 
 var userData = []
 
-// Starts the Game, removes welcome screen, renders question screen.
-
+// Timer that is activated when the user presses start.
 
 function timer() {
-    
-
-
     var timerInterval = setInterval(function()  {
         currentTime--;
         timeEl.textContent = "Time left: " + currentTime + " seconds.";
@@ -48,7 +42,7 @@ function timer() {
 // Used to generate the next question in a chain if there is one available.
 
 function genQuestion(currentQ) {
-
+    // Checks to see if the questions have been used, if so ends the game.
     if (currentQ >= questions.length) {
         startForm()
         currentTime = 1
@@ -66,17 +60,16 @@ function genQuestion(currentQ) {
     }
 }
 
-// Function to generate a response, based upon the declaration from the event listener
+// Function to generate a response, based upon the declaration from the select question function. Flashes text to say if the
+// answer is correct or not.
 
 function genResponse(response) {
 
     if (response === "correct") {
         response = "Correct!"
-        console.log(response)
         questionResponseDiv.textContent = ""
     } else {
         response = "Incorrect! -5s from your time!"
-        console.log(response)
         questionResponseDiv.textContent = ""
     }
 
@@ -85,13 +78,15 @@ function genResponse(response) {
     setTimeout(function () {
         questionResponseDiv.textContent = ""
     }, 1000)
-
-
 }
+
+// Added to <h1> element to link to home.
 
 function returnHome() {
     open("index.html", "_self")
 }
+
+// Collects users' localstorage data, turns it into an arrray which allows it to be edited.
 
 function getUserData() {
     var storedData = JSON.parse(localStorage.getItem("userData"));
@@ -100,20 +95,22 @@ function getUserData() {
     }
 }
 
+// Stores and stringifies the userData array.
+
 function storeUserData() {
     localStorage.setItem("userData", JSON.stringify(userData))
 }
 
-// Select
+// Determines which question is clicked. Compares the answer to tell if it is correct or not, altering the response.
 
-function selectQuestion(event) {
+function selectAnswer(event) {
 
     if(event.target === event.currentTarget) {
         return;
     } else {
         var selectedAnswer = event.target.innerHTML;
         var correctChoice = questions[currentQuestion].answer
-
+        // If statement to compared the selected answer against the correct choice.
         if (correctChoice === selectedAnswer) {
             currentQuestion++;
             currentScore++;
@@ -133,7 +130,6 @@ function selectQuestion(event) {
 function submitName(event) {
     event.preventDefault()
     getUserData();
-    console.log(userData)
     var name = formName.value
     var score = currentScore
     // if statement to check for a valid name
@@ -151,8 +147,7 @@ function submitName(event) {
         userData.push(name, score)
         // Stores the array and stringifies it.
         storeUserData();
-        console.log(userData)
-        startForm()
+        open("highscores.html", "_self")
     }
 
 }
@@ -160,13 +155,11 @@ function submitName(event) {
 // Renders the scores on page load of highscores.
 
 function renderHighscore() {
-    console.log("test");
-    
+    // Retrieves users' data.
     getUserData();
-
     // Gets last 10 entries of the array, which is 5 users worth of scores.
     var last5 = userData.slice(-10);
-    console.log(last5)
+
     for (i = 0; i < last5.length; i++) {
         // Checks if it's even. Creates elements based on this, a new table row is needed on every name.
         if (i%2 == 0) {
@@ -197,8 +190,9 @@ function startGame(event) {
     genQuestion(currentQuestion)
 }
 
-// Hides the 
+// Shows the form page.
 
 function startForm() {
-    open("highscores.html", "_self")
+    gameStartDiv.classList.replace("card", "hidden")
+    formNameDiv.classList.replace("hidden", "card")
 }
