@@ -14,10 +14,10 @@
     </head>
 
     
-    <body>
+    <body onload="renderHighscore()">
         <header>
             <a class="highscores" href="./index.html">Back to home</a>
-            <h1>JavaScript Quiz time!</h1>
+            <h1 onclick="returnHome()">JavaScript Quiz time!</h1>
             <span id="timer" class="timer">Time left: </span>
         </header>
 
@@ -27,18 +27,16 @@
                 <h2>Top 5!</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, laboriosam.</p>
                     <table class="score-table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Score</th>
-                        </tr>
-                        <tr>
-                            <td>Example</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Example</td>
-                            <td>5</td>
-                        </tr>
+                        <tbody class="table-body">
+                            <tr>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                            <tr>
+                                <td>Example</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
                     </table>
                 <span class="button" onclick="returnHome()">
                     Return to home?

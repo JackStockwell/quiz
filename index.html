@@ -16,49 +16,49 @@
     <body>
         <header>
             <a class="highscores" href="./highscores.html">View Highscores</a>
-            <h1>JavaScript Quiz time!</h1>
+            <h1 title="Return to home" onclick="returnHome()">JavaScript Quiz time!</h1>
             <span id="timer" class="timer">Time left: </span>
         </header>
 
         <!--Welcome Card-->
 
-            <section id="welcome-card" class="card">
-                <h2>Welcome!</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error magni reiciendis libero facere deleniti eaque, molestias ut repellat. 
-                    Sit aut ut blanditiis officiis ducimus totam voluptates facere eaque voluptas?
-                </p>
-                <span id="start-form" class="button" onclick="startGame()">
-                    Begin
-                </span>
-            </section>
+        <section id="welcome-card" class="card">
+            <h2>Welcome!</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt error magni reiciendis libero facere deleniti eaque, molestias ut repellat. 
+                Sit aut ut blanditiis officiis ducimus totam voluptates facere eaque voluptas?
+            </p>
+            <span id="start-form" class="button" onclick="startGame()">
+                Begin
+            </span>
+        </section>
 
         <!--Questions-->
 
-            <section id="question-card" class="hidden">
-                <h2 class="question"></h2>
-                <div class="answers" onclick="selectQuestion(event)">
-                    <p class="answer-1 button">A</p>
-                    <p class="answer-2 button">B</p>
-                    <p class="answer-3 button">C</p>
-                    <p class="answer-4 button">D</p>
-                </div>
-                <h3 class="ans-response"></h3>
-            </section>
+        <section id="question-card" class="hidden">
+            <h2 class="question"></h2>
+            <div class="answers" onclick="selectQuestion(event)">
+                <p class="answer-1 button">A</p>
+                <p class="answer-2 button">B</p>
+                <p class="answer-3 button">C</p>
+                <p class="answer-4 button">D</p>
+            </div>
+            <h3 class="ans-response"></h3>
+        </section>
 
         <!--Form-->
 
-            <section id="form-card" class="hidden">
-                <h2>Well done!</h2>
-                <p>
-                    Using the box below, place your name inside to save you score!
-                </p>
-                <form>
-                    <input type="text" id="form-name" placeholder="John S">
-                </form>
-                    <input type="submit" id="form-name-bttn" class="button" onclick="submitName(event)"></input>
-                <h3 id="form-response" class="response"></h3>
-            </section>
+        <section id="form-card" class="hidden">
+            <h2>Well done!</h2>
+            <p>
+                Using the box below, place your name inside to save you score!
+            </p>
+            <form>
+                <input type="text" id="form-name" placeholder="John S">
+            </form>
+                <input type="submit" id="form-name-bttn" class="button" onclick="submitName(event)"></input>
+            <h3 id="form-response" class="response"></h3>
+        </section>
         
         </section>
         <script src="./assets/js/script.js"></script>
