@@ -15,6 +15,7 @@
     --headerfont: 'Montserrat', 'sans-seriff';
     --font: 'Signika Negative', 'sans-seriff';
     --font-color: #fff;
+    --font-hl: #fa8080;
     --font-colordark: #111
 }
 /* General */
@@ -97,6 +98,10 @@ header > * {
     gap: 5%;
     font-size: 1em;
     text-align: center;
+}
+
+.span-highlight {
+    color: var(--font-hl);
 }
 
 /* Index */

@@ -6,6 +6,7 @@
         <title>Quiz time!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,33 +29,35 @@
                 Are you ready to put your knowledge to the test?
             </p>
             <p>
-                If so, then welcome to this JavaScript quiz extravaganza!
+                If so, then welcome to this JavaScript quiz extravaganza! You will have <span class="span-highlight">45 Seconds</span> to complete the test, 
+                if you answer a question incorrectly you will loose <span class="span-highlight">5 seconds</span> from your overall time!
             </p>
-            <span id="start-form" class="button" onclick="startGame()">
+            <!--Button to start game-->
+            <button id="start-form" class="button" onclick="startGame()">
                 Begin
-            </span>
+            </button>
         </section>
 
         <!--Questions-->
 
         <section id="question-card" class="hidden">
             <h2 class="question"></h2>
-            <div class="answers" onclick="selectQuestion(event)">
+            <div class="answers" onclick="selectAnswer(event)">
                 <p class="answer-1 button">A</p>
                 <p class="answer-2 button">B</p>
                 <p class="answer-3 button">C</p>
                 <p class="answer-4 button">D</p>
             </div>
+            <!--Question response is placed here-->
             <h3 class="ans-response"></h3>
         </section>
 
-        <!--Form-->
+        <!--Form records the users' name and takes them too highscores.html-->
 
         <section id="form-card" class="hidden">
             <h2>Well done!</h2>
             <p>
                 Using the box below, place your name inside to save you score!<br>
-                You will have 45 seconds to complete the test, if you answer a question incorrectly you will loose 5 seconds from your overall time!
             </p>
             <form>
                 <input type="text" id="form-name" placeholder="John S">

@@ -1,16 +1,18 @@
+// Small list of questions.
+
 var questions = [
     {
-      title: 'Commonly used data types DO NOT include:',
+      title: 'Commonly used data types DO NOT include?',
       choices: ['strings', 'booleans', 'alerts', 'numbers'],
       answer: 'alerts',
     },
     {
-      title: 'The condition in an if / else statement is enclosed within ____.',
+      title: 'The condition in an if / else statement is enclosed within ____?',
       choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
       answer: 'parentheses',
     },
     {
-      title: 'Arrays in JavaScript can be used to store ____.',
+      title: 'Arrays in JavaScript can be used to store ____?',
       choices: [
         'numbers and strings',
         'other arrays',
@@ -21,15 +23,21 @@ var questions = [
     },
     {
       title:
-        'String values must be enclosed within ____ when being assigned to variables.',
+        'String values must be enclosed within ____ when being assigned to variables?',
       choices: ['commas', 'curly brackets', 'quotes', 'parentheses'],
       answer: 'quotes',
     },
     {
       title:
-        'A very useful tool used during development and debugging for printing content to the debugger is:',
+        'A very useful tool used during development and debugging for printing content to the debugger is?',
       choices: ['JavaScript', 'terminal / bash', 'for loops', 'console.log'],
       answer: 'console.log',
     },
+    {
+      title:
+      'In jQuery, what syntax shows how to querySelect a class?',
+      choices: ['$(&#39.class&#39)', '%(&#39.class&#39)', 'qa(&#39.class&#39)', 'get(&#39.class&#39)'],
+      answer: '$(&#39.class&#39)',
+    }
   ];
   

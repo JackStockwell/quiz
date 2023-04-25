@@ -4,7 +4,11 @@ The reason for making this quiz is I wanted to create a website to test my knowl
 
 I have used the various techniques from basic for loops to querySelctors and eventlisteners to create the quiz.
 
-The quiz involves dynamically creating as well as showing and hiding elements with the HTML page to load new questions and answers, avoids cluttering the page with a section for each question
+The quiz involves dynamically creating as well as showing and hiding elements with the HTML page to load new questions and answers, avoids cluttering the page with a section for each question.
+
+One of my main challenges was getting it all to come together, I faced issues with the generation of new questions which led to me splitting it across two functions; another was how to store the data in localstorage, whether that was with objects with an array of names and scores or just an array.
+
+I gained a deeper understand of JavaScript during this entire project as well as allowing me to flex a bit more of CSS capabilties.
 
 ## Screenshots
 
@@ -20,11 +24,11 @@ The GitHiub pages for this project can be found [Here](https://jackstockwell.git
 
 N/A
 
-## Testing
-
-
-
 ## Credits 
 
 [Background Gradient from haikei](https://app.haikei.app/) - Used to create an SVG for the Background Image.
+
+[Gradient Borders](https://codyhouse.co/nuggets/css-gradient-borders) - A tutorial I followed on gett the gradient borders.
+
+[Mozilla web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used several of their articles on a multitude of expressions etc.
 
