@@ -99,8 +99,8 @@ function storeUserData() {
     localStorage.setItem("userData", JSON.stringify(userData))
 }
 
-questionChoicesDiv.addEventListener("click", function(event) {
-    event.stopPropagation();
+function selectQuestion(event) {
+
     if(event.target === event.currentTarget) {
         return;
     } else {
@@ -119,7 +119,7 @@ questionChoicesDiv.addEventListener("click", function(event) {
             genQuestion(currentQuestion)
         }
     }
-});
+};
 
 // Used to get the value of the form name and turn it into an object that can be saved to.
 
