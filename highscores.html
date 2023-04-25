@@ -6,7 +6,6 @@
         <title>Quiz time!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,31 +16,27 @@
     <body onload="renderHighscore()">
         <header>
             <a class="highscores" href="./index.html">Back to home</a>
-            <h1 onclick="returnHome()">JavaScript Quiz time!</h1>
+            <h1 title="Return to home" onclick="returnHome()">JavaScript Quiz time!</h1>
             <span id="timer" class="timer">Time left: </span>
         </header>
 
         <!--Highscores-->
 
-            <section id="welcome-card" class="card">
-                <h2>Recent Scores!</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, laboriosam.</p>
-                    <table class="score-table">
-                        <tbody class="table-body">
-                            <tr>
-                                <th>Name</th>
-                                <th>Score</th>
-                            </tr>
-                            <tr>
-                                <td>Example</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                <span class="button" onclick="returnHome()">
-                    Return to home?
-                </span>
-            </section>
+        <section id="welcome-card" class="card">
+            <h2>Recent Scores!</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, laboriosam.</p>
+                <table class="score-table">
+                    <tbody class="table-body">
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                        </tr>
+                    </tbody>
+                </table>
+            <span class="button" onclick="returnHome()">
+                Return to home?
+            </span>
+        </section>
 
         </section>
         <script src="./assets/js/script.js"></script>
