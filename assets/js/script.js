@@ -9,7 +9,6 @@ var questionTitleDiv = document.querySelector(".question");
 var questionChoicesDiv = document.querySelector(".answers");
 var questionResponseDiv = document.querySelector(".ans-response");
 
-
 var timeEl = document.getElementById("timer");
 
 console.log(localStorage)
