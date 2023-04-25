@@ -32,7 +32,6 @@ body {
     font-family: var(--font);
     color: var(--font-color);
     font-size: 18px;
-    padding: 1rem;
 }   
 
 /* Headers */
@@ -53,14 +52,14 @@ h1, h2, h3, h4, h5, h6 {
 header {
     display: flex;
     position: sticky;
-    margin-bottom: 2rem;
     width: 100%;
     top: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
     max-width: 100rem;
-    min-height: 60px;
+    max-height: fit-content;
+    padding: 1.5rem;
 }
 
 h1 {
@@ -84,11 +83,11 @@ header > * {
     justify-content: center;
     align-items: center;
     margin: 2rem;
-    flex: 1;
-    width: fit-content;
-    max-width: 80rem;
-    flex-flow: column nowrap;
     padding: 2rem;
+    width: 80vw;
+    max-width: 50rem;
+    flex: 1;
+    flex-flow: column nowrap;
     background: 
         linear-gradient(135deg, var(--background), var(--background)) padding-box,
         linear-gradient(135deg, var(--gcolorleft), var(--gcolorright)) border-box;
@@ -172,7 +171,6 @@ header > * {
 /* Highscores */
 
 .score-table {
-    transform: scale(.85);
     display: flex;
     justify-content: center;
     flex-flow: column nowrap;
@@ -203,4 +201,19 @@ header > * {
 .table-body tr {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width:992px) {
+    header {
+        flex-flow: column nowrap;
+    }
+
+    header h1 {
+        font-size: 150%
+    }
+
+    .answers {
+        display: flex;
+        flex-flow: column nowrap;
+    }
 }
