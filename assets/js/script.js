@@ -5,6 +5,7 @@ var gameStartDiv = document.querySelector("#question-card");
 var formNameDiv = document.querySelector("#form-card");
 var submitBttn = document.querySelector("#form-name-bttn")
 var formName = document.querySelector("#form-name")
+var tableDiv = document.querySelector(".table-body")
 
 var questionTitleDiv = document.querySelector(".question");
 var questionChoicesDiv = document.querySelector(".answers");
@@ -19,6 +20,8 @@ var currentTime = 60;
 var currentScore = 0
 
 // 
+
+// var userData = []
 
 var userData = []
 
@@ -36,6 +39,7 @@ function timer() {
         if (currentTime === 0) {
             clearInterval(timerInterval)
             startForm();
+            timeEl.textContent = "Time's up!"
         }
 
     }, 1000);
@@ -47,6 +51,7 @@ function genQuestion(currentQ) {
 
     if (currentQ >= questions.length) {
         startForm()
+        currentTime = 1
     } else {
         // Sets the title div to be the current question title.
         questionTitleDiv.textContent = questions[currentQ].title
@@ -99,6 +104,8 @@ function storeUserData() {
     localStorage.setItem("userData", JSON.stringify(userData))
 }
 
+// Select
+
 function selectQuestion(event) {
 
     if(event.target === event.currentTarget) {
@@ -121,14 +128,14 @@ function selectQuestion(event) {
     }
 };
 
-// Used to get the value of the form name and turn it into an object that can be saved to.
+// Used to save the user's name and user's score into local storage after playing the game.
 
 function submitName(event) {
     event.preventDefault()
     getUserData();
+    console.log(userData)
     var name = formName.value
     var score = currentScore
-    console.log(userData)
     // if statement to check for a valid name
     if (name === "") {
         alert("You must enter a name!")
@@ -140,15 +147,44 @@ function submitName(event) {
         alert("Please use letters only!")
         return;
     } else {
-
+        // Takes the userData array, pushes the new name and score into the array.
         userData.push(name, score)
+        // Stores the array and stringifies it.
         storeUserData();
+        console.log(userData)
         open("highscores.html", "_self")
     }
-    // when a valid name is entered I WANT to store that name to be stored in an array object so WHEN i call upon on it later, I CAN gather both name and score
+
 }
 
+function renderHighscore() {
+    console.log("test");
+    
+    getUserData();
 
+    console.log(userData);
+
+    for (i = 0; i < userData.length; i++) {
+        if (i == 0 || ) {
+            var trEl = document.createElement("tr");
+            tableDiv.appendChild(trEl);
+            var tdEl = document.createElement("td");
+            trEl.appendChild(tdEl);
+            tdEl.innerHTML = userData[i];
+        } else {
+            console.log("help")
+        }
+
+
+    }
+    
+    tableDiv.appendChild(trEl)
+    
+    .appendChild(tdEl)
+
+    tdEl.innerText = 123
+    
+}
 
 // Starts the Game, removes welcome screen, renders question screen.
 
