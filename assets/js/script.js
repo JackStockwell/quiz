@@ -144,10 +144,18 @@ function submitName(event) {
         return;
     } else {
         // Takes the userData array, pushes the new name and score into the array.
-        userData.push(name, score)
-        // Stores the array and stringifies it.
+        var userEntry = {
+            userName: name,
+            userScore: score
+        }
+
+        userData.push(userEntry)
+        console.log(userData)
+
+    //     userData.push(name, score)
+    //     // Stores the array and stringifies it.
         storeUserData();
-        open("highscores.html", "_self")
+    //     open("highscores.html", "_self")
     }
 
 }
@@ -157,21 +165,27 @@ function submitName(event) {
 function renderHighscore() {
     // Retrieves users' data.
     getUserData();
-    // Gets last 10 entries of the array, which is 5 users worth of scores.
-    var last5 = userData.slice(-10);
+    // Sorts based on score.
+    userData.sort((a, b) => b.score - a.score)
+    // Stores top 5.
+    var top5 = userData
+    top5.splice(5)
+    console.log(top5)
 
-    for (i = 0; i < last5.length; i++) {
+    for (i = 0; i < top5.length; i++) {
         // Checks if it's even. Creates elements based on this, a new table row is needed on every name.
         if (i%2 == 0) {
             var trEl = document.createElement("tr");
             tableDiv.appendChild(trEl);
             var tdEl = document.createElement("td");
             trEl.appendChild(tdEl);
-            tdEl.innerHTML = last5[i];
+            username = top5
+            tdEl.innerHTML = username
+            console.log(top5)
         } else {
             var tdEl = document.createElement("td");
             trEl.appendChild(tdEl);
-            tdEl.innerHTML = last5[i];
+            tdEl.innerHTML = top5.score();
         }
     } 
 }
