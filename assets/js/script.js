@@ -166,8 +166,7 @@ function renderHighscore() {
     getUserData();
     // Sorts based on score. Then slices the top 5.
     var top5 = userData.sort((a, b) => b.userScore - a.userScore).slice(0,4)
-
-
+    // Creates a new row with data for all top 5 scores.
     for (i = 0; i < top5.length; i++) {
         console.log(top5[i])
         var trEl = document.createElement("tr");
