@@ -30,5 +30,10 @@ N/A
 
 [Gradient Borders](https://codyhouse.co/nuggets/css-gradient-borders) - A tutorial I followed on gett the gradient borders.
 
-[Mozilla web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used several of their articles on a multitude of expressions etc.
+[Mozilla web docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Used several of their articles on a multitude of expressions etc.
 
+[Mozilla web docs - CSS](https://developer.mozilla.org/en-US/docs/Web/css) - Used to look up on all the different attributes for CSS.
+
+[JavaScript isEven function](https://css-tricks.com/snippets/javascript/check-if-number-is-evenodd/) - A simple guide on how to check if a number is even.
+
+[Font clamp app](https://clamp.font-size.app/) - Used to generate a clamp syntax that suits your needs!
