@@ -143,19 +143,18 @@ function submitName(event) {
         alert("Please use letters only!")
         return;
     } else {
-        // Takes the userData array, pushes the new name and score into the array.
+        // An object to store the userdata in.
         var userEntry = {
             userName: name,
             userScore: score
         }
-
+        // Takes the userData array, pushes the new name and score into the array as an object.
         userData.push(userEntry)
         console.log(userData)
 
-    //     userData.push(name, score)
-    //     // Stores the array and stringifies it.
+        // Stores the array and stringifies it.
         storeUserData();
-    //     open("highscores.html", "_self")
+        open("highscores.html", "_self")
     }
 
 }
@@ -165,28 +164,21 @@ function submitName(event) {
 function renderHighscore() {
     // Retrieves users' data.
     getUserData();
-    // Sorts based on score.
-    userData.sort((a, b) => b.score - a.score)
-    // Stores top 5.
-    var top5 = userData
-    top5.splice(5)
-    console.log(top5)
+    // Sorts based on score. Then slices the top 5.
+    var top5 = userData.sort((a, b) => b.userScore - a.userScore).slice(0,4)
+
 
     for (i = 0; i < top5.length; i++) {
-        // Checks if it's even. Creates elements based on this, a new table row is needed on every name.
-        if (i%2 == 0) {
-            var trEl = document.createElement("tr");
-            tableDiv.appendChild(trEl);
-            var tdEl = document.createElement("td");
-            trEl.appendChild(tdEl);
-            username = top5
-            tdEl.innerHTML = username
-            console.log(top5)
-        } else {
-            var tdEl = document.createElement("td");
-            trEl.appendChild(tdEl);
-            tdEl.innerHTML = top5.score();
-        }
+        console.log(top5[i])
+        var trEl = document.createElement("tr");
+        var td1El = document.createElement("td");
+        var td2El = document.createElement("td");
+        tableDiv.appendChild(trEl);
+        trEl.appendChild(td1El);
+        trEl.appendChild(td2El);
+        td1El.innerHTML = top5[i].userName
+        td2El.innerHTML = top5[i].userScore
+
     } 
 }
 
