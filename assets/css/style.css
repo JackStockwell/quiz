@@ -118,6 +118,15 @@ header > * {
 
 /* Form */
 
+form  {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+form > * {
+    margin: 1em;
+}
+
 #form-name {
     font-size: 1em;
     text-transform: none;

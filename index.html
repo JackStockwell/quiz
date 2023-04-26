@@ -59,10 +59,10 @@
             <p>
                 Using the box below, place your name inside to save you score!<br>
             </p>
-            <form>
+            <form onsubmit="submitName(event)">
                 <input type="text" id="form-name" placeholder="John S">
+                <input type="submit" id="form-name-bttn" class="button" onsubmit="submitName(event)"></input>
             </form>
-                <input type="submit" id="form-name-bttn" class="button" onclick="submitName(event)"></input>
             <h3 id="form-response" class="response"></h3>
         </section>
         
